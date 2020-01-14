@@ -503,8 +503,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 600}
+  m_AnchoredPosition: {x: 0.000045776, y: 0.000022411}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &736004140
 MonoBehaviour:
@@ -525,7 +525,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 753fb44ec89f9f64493fb2a192138726, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -537,16 +537,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Did you ever hear the tragedy of Darth Plagueis the Wise?\r\nI thought
-    not. It's not a story the Jedi would tell you. It's a Sith legend. Darth Plagueis
-    was a Dark Lord of the Sith, so powerful and so wise he could use the Force to
-    influence the midichlorians to create life... He had such a knowledge of the dark
-    side that he could even keep the ones he cared about from dying. The dark side
-    of the Force is a pathway to many abilities some consider to be unnatural. He
-    became so powerful... the only thing he was afraid of was losing his power, which
-    eventually, of course, he did. Unfortunately, he taught his apprentice everything
-    he knew, then his apprentice killed him in his sleep. Ironic, he could save others
-    from death, but not himself."
+  m_Text: 10
 --- !u!222 &736004141
 CanvasRenderer:
   m_ObjectHideFlags: 0

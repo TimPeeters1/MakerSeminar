@@ -22,7 +22,10 @@ public class RGBGame : MonoBehaviour
     [SerializeField] private Transform origin;
     private Renderer ren;
 
-    private void Start()
+	private Vector2 fontDistance;
+
+
+	private void Start()
     {
         ren = GetComponent<Renderer>();
     }
@@ -38,17 +41,17 @@ public class RGBGame : MonoBehaviour
 
         alpha.x = Vector3.Distance(origin.transform.position, transform.position) / alpha.y;
 
+		fontDistance.x = Vector3.Distance(origin.transform.position, transform.position) / fontDistance.y;
+
+
         if (isImage)
         {
             imageComponent.color = new Color(Mathf.Clamp(red.x, 0, 1), Mathf.Clamp(green.x, 0, 1), Mathf.Clamp(blue.x, 0, 1));
         }
         else
         {
-            
-
-            textComponent.color  = new Color(Mathf.Clamp(red.x, 0, 1), Mathf.Clamp(green.x, 0, 1), Mathf.Clamp(blue.x, 0, 1), Mathf.Clamp(alpha.x, 0, 1));
+			textComponent.fontSize = Mathf.Clamp(Mathf.RoundToInt(fontDistance.x), 1, 30);
+            //textComponent.color  = new Color(Mathf.Clamp(red.x, 0, 1), Mathf.Clamp(green.x, 0, 1), Mathf.Clamp(blue.x, 0, 1), Mathf.Clamp(alpha.x, 0, 1));
         }
-
-
     }
 }
