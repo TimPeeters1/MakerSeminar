@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
+using Valve.VR;
+using UnityEngine.EventSystems;
 
 public class Pointer : MonoBehaviour
 {
 	[SerializeField] private float m_defaultLenght = 5.0f;
 	[SerializeField] private GameObject m_dot;
-	[SerializeField] private InputModule m_inputModule;
+	[SerializeField] private VR_InputModule m_inputModule;
 
 	private LineRenderer m_lineRenderer = null;
 
@@ -23,7 +25,8 @@ public class Pointer : MonoBehaviour
 
 	private void UpdateLine()
 	{
-		float _targetLength = m_defaultLenght;
+		PointerEventData data = m_inputModule.GetData();
+		float _targetLength = data.pointerCurrentRaycast.distance == 0 ? m_defaultLenght : data.pointerCurrentRaycast.distance;
 		RaycastHit _hit = CreateRaycast(_targetLength);
 		Vector3 _endPosition = transform.position + (transform.position * _targetLength);
 		if(_hit.collider != null)

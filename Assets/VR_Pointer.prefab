@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_defaultLenght: 5
   m_dot: {fileID: 285187576149276012}
+  m_inputModule: {fileID: 0}
 --- !u!20 &285187574924250864
 Camera:
   m_ObjectHideFlags: 0
@@ -108,7 +109,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
