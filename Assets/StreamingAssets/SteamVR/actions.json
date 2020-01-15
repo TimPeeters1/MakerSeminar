@@ -50,6 +50,22 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/TPUp",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/TPDown",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/TPLeft",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/TPRight",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
