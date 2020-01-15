@@ -26,19 +26,15 @@ public class ControllerPointer : MonoBehaviour
     {
         Debug.DrawRay(transform.position, transform.forward * 1000f, Color.red);
         Physics.Raycast(transform.position, transform.forward * 1000f, out hit);
-
-
-
+    
         if (trigger.stateDown)
         {
-            Debug.Log("Pressed");
-            try
-            {
+            if(hit.collider.GetComponent<VR_Button>())
                 hit.collider.GetComponent<VR_Button>().TriggerButton();
-            }
-            catch
-            {
-            }
+
+            if (hit.collider.GetComponent<VirusDing>())
+                hit.collider.GetComponent<VirusDing>().Eliminate();
+
         }
 
         m_lineRenderer.SetPosition(0, transform.position);

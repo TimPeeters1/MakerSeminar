@@ -3,8 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
+
+
 public class GameManager: MonoBehaviour
 {
+    #region Singleton
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        instance = this;
+    }
+    #endregion
+
 
     [SerializeField] PlayableDirector director;
 
@@ -14,6 +26,7 @@ public class GameManager: MonoBehaviour
 
     private void Start()
     {
+        
         cameraObject = Camera.main;
         _originalPos = cameraObject.transform.position;
     }

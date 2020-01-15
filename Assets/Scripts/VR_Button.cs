@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(BoxCollider))]
 public class VR_Button : MonoBehaviour
 {
     [SerializeField]private int sceneIndex;

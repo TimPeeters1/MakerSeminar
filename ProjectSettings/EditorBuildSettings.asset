@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/InterfaceMain.unity
     guid: 4b01cf98cc584e54d8c8233c20d25e60
   - enabled: 1
-    path: Assets/Scenes/TextPuzzel.unity
-    guid: 895954adb2050b54c85cdc8c3ecc29a0
+    path: Assets/Scenes/StartedSystem.unity
+    guid: 66b72b8472a181549ab43a129ec7afe3
+  - enabled: 1
+    path: Assets/Scenes/Puzzel1.unity
+    guid: dd9b5a93b4aab084a8fbacb8d55567a2
   m_configObjects: {}
