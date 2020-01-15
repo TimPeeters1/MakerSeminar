@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VR_Button : MonoBehaviour
 {
+    [SerializeField]private int sceneIndex;
+
     private Image image;
     public Color32 m_NormalColor = Color.white;
     public Color32 m_HoverColor = Color.white;
@@ -32,7 +35,6 @@ public class VR_Button : MonoBehaviour
 
     public void TriggerButton()
     {
-        
-        Debug.Log("Hallo ik ben een knop");
+        SceneManager.LoadScene(sceneIndex);
     }
 }

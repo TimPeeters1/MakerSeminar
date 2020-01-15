@@ -7,7 +7,8 @@ public class RoomInteraction : MonoBehaviour
 
     [SerializeField] float speed;
 
-
+    [SerializeField] GameObject doorPosition;
+    [SerializeField] GameObject doorText;
 
     [SerializeField] GameObject[] buttons;
     [SerializeField] GameObject[] mapPositions;
@@ -21,7 +22,9 @@ public class RoomInteraction : MonoBehaviour
 
         }
 
+        doorText.GetComponentInChildren<LineRenderer>().SetPosition(0, doorText.GetComponentInChildren<LineRenderer>().transform.position);
+        doorText.GetComponentInChildren<LineRenderer>().SetPosition(1, doorPosition.transform.position);
 
-        transform.RotateAround(transform.position, -transform.forward, Time.deltaTime * speed);
+        transform.RotateAround(transform.position, transform.up, Time.deltaTime * speed);
     }
 }
