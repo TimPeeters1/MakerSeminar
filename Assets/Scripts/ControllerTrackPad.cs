@@ -19,24 +19,24 @@ public class ControllerTrackPad : MonoBehaviour
 
 	private void Update()
     {
-		if (SteamVR_Actions.default_TPDown.stateDown)
-		{
-			scrollImage.transform.position += Vector3.down * scrollSpeed * Time.deltaTime;
-		}
-
-		if (SteamVR_Actions.default_TPUp.stateDown)
+		if (SteamVR_Actions.default_TPDown.state)
 		{
 			scrollImage.transform.position += Vector3.up * scrollSpeed * Time.deltaTime;
 		}
 
-		if (SteamVR_Actions.default_TPLeft.stateDown)
+		if (SteamVR_Actions.default_TPUp.state)
 		{
-			scrollImage.transform.position += Vector3.left * scrollSpeed * Time.deltaTime;
+			scrollImage.transform.position += Vector3.down * scrollSpeed * Time.deltaTime;
 		}
 
-		if (SteamVR_Actions.default_TPRight.stateDown)
+		if (SteamVR_Actions.default_TPLeft.state)
 		{
 			scrollImage.transform.position += Vector3.right * scrollSpeed * Time.deltaTime;
+		}
+
+		if (SteamVR_Actions.default_TPRight.state)
+		{
+			scrollImage.transform.position += Vector3.left * scrollSpeed * Time.deltaTime;
 		}
 	}
 }
