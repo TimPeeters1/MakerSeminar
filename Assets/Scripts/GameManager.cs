@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-
-
 public class GameManager: MonoBehaviour
 {
     #region Singleton
@@ -16,7 +14,6 @@ public class GameManager: MonoBehaviour
         instance = this;
     }
     #endregion
-
 
     [SerializeField] PlayableDirector director;
 
@@ -49,18 +46,17 @@ public class GameManager: MonoBehaviour
 
         float _elapsed = 0.0f;
 
-        while (_elapsed < _duration)
-        {
-            float x = Random.Range(-1f, 1f) * _magnitude;
-            float y = Random.Range(-1f, 1f) * _magnitude;
+		while (_elapsed < _duration)
+		{
+			float x = Random.Range(-1f, 1f) * _magnitude;
+			float y = Random.Range(-1f, 1f) * _magnitude;
 
-            cameraObject.transform.localPosition = new Vector3(_originalPos.x + x, _originalPos.y + y, _originalPos.z);
+			cameraObject.transform.localPosition = new Vector3(_originalPos.x + x, _originalPos.y + y, _originalPos.z);
 
-            _elapsed += Time.deltaTime;
+			_elapsed += Time.deltaTime;
 
-            yield return null;
-        }
-
+			yield return null;
+		}
         cameraObject.transform.localPosition = _originalPos;
     }
 }
