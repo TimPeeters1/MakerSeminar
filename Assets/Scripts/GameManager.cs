@@ -21,9 +21,9 @@ public class GameManager: MonoBehaviour
 
     Vector3 _originalPos;
 
+    public bool lock1, lock2, lock3, door;
     private void Start()
-    {
-        
+    {  
         cameraObject = Camera.main;
         _originalPos = cameraObject.transform.position;
     }
