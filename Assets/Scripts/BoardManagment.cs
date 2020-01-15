@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class BoardManagment : MonoBehaviour
 {
@@ -11,10 +12,16 @@ public class BoardManagment : MonoBehaviour
 	[SerializeField] private Text virusCompletedText;
 	private int maxCounter = 5;
 	private int counter;
-	
+
+	[SerializeField] private Text finishedText;
+	[SerializeField] private Image background;
+
+
 	private void Start()
 	{
 		virusCompletedText.text = counter + "/" + maxCounter;
+		finishedText.enabled = false;
+		background.enabled = false;
 	}
 
 	private void Update()
@@ -24,8 +31,20 @@ public class BoardManagment : MonoBehaviour
 			if (unlock1Event != null)
 			{
 				unlock1Event(true);
+
+				StartCoroutine(OtherStuff());
 			}
 		}
+	}
+
+	private IEnumerator OtherStuff()
+	{
+		yield return new WaitForSeconds(1);
+		finishedText.enabled = true;
+		background.enabled = true;
+
+		yield return new WaitForSeconds(3);
+		SceneManager.LoadScene(2);	
 	}
 
 	private void CountUp(int _count)
