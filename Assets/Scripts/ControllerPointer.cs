@@ -35,6 +35,9 @@ public class ControllerPointer : MonoBehaviour
             if (hit.collider.GetComponent<VirusDing>())
                 hit.collider.GetComponent<VirusDing>().Eliminate();
 
+			if (hit.collider.GetComponent<CodeLock>())
+				hit.collider.GetComponent<CodeLock>().Activate();
+
         }
 
         m_lineRenderer.SetPosition(0, transform.position);
@@ -47,8 +50,5 @@ public class ControllerPointer : MonoBehaviour
         {
             m_lineRenderer.SetPosition(1, transform.forward * 1000f);
         }
-
-       
-
     }
 }
