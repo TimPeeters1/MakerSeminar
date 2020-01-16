@@ -8,6 +8,7 @@ public class ControllerPointer : MonoBehaviour
 {
     public SteamVR_ActionSet set;
     public SteamVR_Action_Boolean trigger;
+    public SteamVR_Action_Boolean trigger1;
 
     public SteamVR_Input_Sources inputSource;
 
@@ -27,7 +28,7 @@ public class ControllerPointer : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 1000f, Color.red);
         Physics.Raycast(transform.position, transform.forward * 1000f, out hit);
     
-        if (trigger.stateDown)
+        if (trigger.stateDown || trigger1.stateDown)
         {
             if(hit.collider.GetComponent<VR_Button>())
                 hit.collider.GetComponent<VR_Button>().TriggerButton();

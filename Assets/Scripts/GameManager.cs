@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using Valve.VR;
 
 public class GameManager: MonoBehaviour
 {
@@ -23,16 +24,26 @@ public class GameManager: MonoBehaviour
 
     public bool lock1, lock2, lock3, doorLock;
 
+    public SteamVR_ActionSet set;
+    public SteamVR_Action_Boolean trigger;
+    public SteamVR_Action_Boolean trigger1;
+
+    public SteamVR_Input_Sources inputSource;
+
+    public GameObject failScreen;
+    public AudioClip failSound;
+    public AudioClip winSound;
 
     private void Start()
-    {  
+    {
+        set.Activate(SteamVR_Input_Sources.Any, 0, true);
         cameraObject = Camera.main;
         _originalPos = cameraObject.transform.position;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) || trigger.stateDown || trigger1.stateDown)
         {
             director.Play();
         }

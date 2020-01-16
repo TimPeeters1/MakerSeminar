@@ -11,7 +11,7 @@ public class DoorLocks : MonoBehaviour
 	public Text lock1Text, lock2Text, lock3Text, doorText;
 
 	bool hasUnlocked;
-
+			
 	public GameObject doorObject;
 	public GameObject endScreen;
 
@@ -53,6 +53,7 @@ public class DoorLocks : MonoBehaviour
 		doorText.text = ">Door Status: UNLOCKED";
 		mgr.doorLock = true;
 		endScreen.SetActive(true);
+		//GameManager.instance.GetComponent<AudioSource>().PlayOneShot(GameManager.instance.winSound);
 
 		doorObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
 	}

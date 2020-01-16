@@ -16,6 +16,8 @@ public class CodeLocksTransition : MonoBehaviour
 	[SerializeField] private Text finishedText;
 	[SerializeField] private Image background;
 
+
+	[SerializeField] int lockNumber;
 	private void Start()
 	{
 		finishedText.enabled = false;
@@ -35,10 +37,18 @@ public class CodeLocksTransition : MonoBehaviour
 			counterText3.color = Color.green;
 
 			StartCoroutine(OtherStuff());
-			if (unlock2Event != null)
-			{
-				unlock2Event(true);
 
+			if (lockNumber == 1)
+			{
+				GameManager.instance.lock1 = true;
+			}
+			if (lockNumber == 2)
+			{
+				GameManager.instance.lock2 = true;
+			}
+			if(lockNumber == 3)
+			{
+				GameManager.instance.lock3 = true;
 			}
 		}
 	}

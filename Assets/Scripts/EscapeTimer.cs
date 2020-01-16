@@ -11,6 +11,8 @@ public class EscapeTimer : MonoBehaviour
 
 	private int sec;
 
+	bool hasEnded;
+
 	private void Start()
 	{
 		min = Mathf.FloorToInt(timeLeft / 60);
@@ -28,17 +30,24 @@ public class EscapeTimer : MonoBehaviour
 
 	private void TimerUpdate()
 	{
-		min = Mathf.FloorToInt(timeLeft / 60);
 
-		sec = Mathf.FloorToInt(timeLeft % 60);
-
-		timer.text = min.ToString("00") + ":" + sec.ToString("00");
-
-		timeLeft -= Time.deltaTime;
-
-		if (timeLeft < 0)
+		if (timeLeft < 0 && !hasEnded)
 		{
+			hasEnded = true;
 			//DO IETS, LOCK DE DEUR OFZO
+			GameManager.instance.failScreen.SetActive(true);
+			GameManager.instance.GetComponent<AudioSource>().PlayOneShot(GameManager.instance.failSound);
+
+		}
+		else
+		{
+			min = Mathf.FloorToInt(timeLeft / 60);
+
+			sec = Mathf.FloorToInt(timeLeft % 60);
+
+			timer.text = min.ToString("00") + ":" + sec.ToString("00");
+
+			timeLeft -= Time.deltaTime;
 		}
 	}
 }

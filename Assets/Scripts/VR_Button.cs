@@ -36,6 +36,14 @@ public class VR_Button : MonoBehaviour
 
     public void TriggerButton()
     {
-        SceneManager.LoadScene(sceneIndex);
+        if (GetComponent<CodeLock>())
+        {
+
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
+       
     }
 }
