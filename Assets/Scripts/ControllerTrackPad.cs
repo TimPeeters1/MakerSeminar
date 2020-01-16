@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
-using UnityEngine.UI;
 
 public class ControllerTrackPad : MonoBehaviour
 {
 	public SteamVR_ActionSet set;
 	public SteamVR_Input_Sources inputSource;
 	public float scrollSpeed = 5f;
+	[SerializeField] private GameObject VRControllerImage;
 
 	public float maxY, minY, maxX, minX;
 
@@ -16,8 +16,8 @@ public class ControllerTrackPad : MonoBehaviour
 
 	private void Start()
     {
-		//scrollImage = GetComponent<GameObject>();
-    }
+		VRControllerImage.SetActive(true);
+	}
 
 	private void Update()
     {
@@ -27,21 +27,37 @@ public class ControllerTrackPad : MonoBehaviour
 		if (SteamVR_Actions.default_TPDown.state)
 		{
 			newTrans += -transform.forward * scrollSpeed * Time.deltaTime;
+			if(VRControllerImage.activeInHierarchy == true)
+			{
+				VRControllerImage.SetActive(false);
+			}
 		}
 
 		if (SteamVR_Actions.default_TPUp.state)
 		{
 			newTrans += transform.forward * scrollSpeed * Time.deltaTime;
+			if (VRControllerImage.activeInHierarchy == true)
+			{
+				VRControllerImage.SetActive(false);
+			}
 		}
 
 		if (SteamVR_Actions.default_TPLeft.state)
 		{
 			newTrans += -transform.right * scrollSpeed * Time.deltaTime;
+			if (VRControllerImage.activeInHierarchy == true)
+			{
+				VRControllerImage.SetActive(false);
+			}
 		}
 
 		if (SteamVR_Actions.default_TPRight.state )
 		{
 			newTrans += transform.right * scrollSpeed * Time.deltaTime;
+			if (VRControllerImage.activeInHierarchy == true)
+			{
+				VRControllerImage.SetActive(false);
+			}
 		}
 
 		newTrans.x = Mathf.Clamp(newTrans.x, minX, maxX);
