@@ -22,14 +22,16 @@ public class BoardManagment : MonoBehaviour
         virusCompletedText.text = counter + "/" + maxCounter;
         finishedText.enabled = false;
         background.enabled = false;
+        
+
     }
 
     private void Update()
     {
+
         if (counter >= 5)
         {
             StartCoroutine(OtherStuff());
-
             GameManager.instance.lock1 = true;
         }
     }

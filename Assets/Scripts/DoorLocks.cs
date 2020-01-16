@@ -10,12 +10,16 @@ public class DoorLocks : MonoBehaviour
 
 	public Text lock1Text, lock2Text, lock3Text, doorText;
 
-    private void Awake()
+	bool hasUnlocked;
+
+	public GameObject doorObject;
+	public GameObject endScreen;
+
+	private void Awake()
     {
+		endScreen.SetActive(false);
+
 		mgr = GameManager.instance;
-		mgr.lock1 = false; //virus
-		mgr.lock2 = false; //lijst
-		mgr.lock3 = false; //speaker
     }
 
     private void Update()
@@ -27,34 +31,30 @@ public class DoorLocks : MonoBehaviour
 		}
 		if (mgr.lock2 == true)
 		{
-			lock1Text.color = Color.green;
-			lock1Text.text = ">Lock 2: Unlocked";
+			lock2Text.color = Color.green;
+			lock2Text.text = ">Lock 2: Unlocked";
 		}
 		if (mgr.lock3 == true)
 		{
-			lock1Text.color = Color.green;
-			lock1Text.text = ">Lock 3: Unlocked";
+			lock3Text.color = Color.green;
+			lock3Text.text = ">Lock 3: Unlocked";
 		}
 
-		if(mgr.lock1 && mgr.lock2 && mgr.lock3)
+		if(mgr.lock1 && mgr.lock2 && mgr.lock3 && !hasUnlocked)
 		{
-			doorText.color = Color.green;
-			doorText.text = ">"
+			hasUnlocked = true;
+			UnlockDoor();
 		}
 	}
 
-	private void UnlockDoor(bool _lock1)
+	private void UnlockDoor()
 	{
-		mgr.lock1 = _lock1;
+		doorText.color = Color.green;
+		doorText.text = ">Door Status: UNLOCKED";
+		mgr.doorLock = true;
+		endScreen.SetActive(true);
+
+		doorObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
 	}
 
-	private void OnEnable()
-	{
-		BoardManagment.unlock1Event += UnlockDoor;
-	}
-
-	private void OnDisable()
-	{
-		BoardManagment.unlock1Event -= UnlockDoor;
-	}
 }
