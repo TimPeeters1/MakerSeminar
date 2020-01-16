@@ -13,6 +13,7 @@ public class VirusDing : MonoBehaviour
 		if(virusDeadEvent != null)
 		{
 			virusDeadEvent(1);
+            Debug.Log("event");
 		}
         Destroy(this.gameObject);
     }
