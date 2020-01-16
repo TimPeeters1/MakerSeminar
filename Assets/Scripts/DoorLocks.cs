@@ -8,7 +8,7 @@ public class DoorLocks : MonoBehaviour
 {
 	GameManager mgr;
 
-	public Text lock1Text, lock2Text, lock3Text;
+	public Text lock1Text, lock2Text, lock3Text, doorText;
 
     private void Awake()
     {
@@ -25,7 +25,23 @@ public class DoorLocks : MonoBehaviour
 			lock1Text.color = Color.green;
 			lock1Text.text = ">Lock 1: Unlocked";
 		}
-    }
+		if (mgr.lock2 == true)
+		{
+			lock1Text.color = Color.green;
+			lock1Text.text = ">Lock 2: Unlocked";
+		}
+		if (mgr.lock3 == true)
+		{
+			lock1Text.color = Color.green;
+			lock1Text.text = ">Lock 3: Unlocked";
+		}
+
+		if(mgr.lock1 && mgr.lock2 && mgr.lock3)
+		{
+			doorText.color = Color.green;
+			doorText.text = ">"
+		}
+	}
 
 	private void UnlockDoor(bool _lock1)
 	{

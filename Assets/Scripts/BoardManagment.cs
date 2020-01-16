@@ -29,11 +29,8 @@ public class BoardManagment : MonoBehaviour
         if (counter >= 5)
         {
             StartCoroutine(OtherStuff());
-            if (unlock1Event != null)
-            {
-                unlock1Event(true);
 
-            }
+            GameManager.instance.lock1 = true;
         }
     }
 
